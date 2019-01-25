@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-pure",
+  "version": "1.0.0",
+  "description": "Simple NodeJs application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Antonio Rafael Rodrigues",
+  "license": "ISC"
+}
