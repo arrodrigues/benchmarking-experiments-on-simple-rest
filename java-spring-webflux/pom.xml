@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>site.antoniorodrigues</groupId>
+    <artifactId>webflux-simple-rest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>Simple Java Spring Webflux application.</description>
+
+    <developers>
+        <developer>
+            <name>Antonio Rafael Rodrigues</name>
+            <organizationUrl>antoniorodrigues.site</organizationUrl>
+        </developer>
+    </developers>
+
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-boot-maven-plugin.version>1.5.8.RELEASE</spring-boot-maven-plugin.version>
+        <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-maven-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin.version}</version>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>-Xmx30m</argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>example.Application</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
