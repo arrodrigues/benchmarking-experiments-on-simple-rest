@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-express",
+  "version": "1.0.0",
+  "description": "Simple NodeJS with Express framework application\"",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Antonio Rafael Rodrigues",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.16.4"
+  }
+}
