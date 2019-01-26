@@ -1,4 +1,5 @@
 const express = require('express');
+const process = require('process');
 const app = express();
 const PORT = 3000;
 app.disable('x-powered-by');
@@ -15,4 +16,4 @@ app.get("/", (req, resp) => {
 
 app.listen(PORT);
 
-console.log("The 'NodeJS Express' service is listening on port " + PORT);
+console.log("The 'NodeJS Express' service of PID["+process.pid+"] is listening on port " + PORT);

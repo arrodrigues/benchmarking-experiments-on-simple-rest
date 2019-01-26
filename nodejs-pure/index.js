@@ -1,6 +1,7 @@
 const http = require('http');
 const url = require('url');
 const querystring = require('querystring');
+const process = require('process');
 const PORT = 3000;
 
 const server = http.createServer(
@@ -27,6 +28,6 @@ function extractQueryParameters(req) {
 }
 
 server.listen(PORT);
-console.log("The 'NodeJS Pure' service is listening on port " + PORT);
+console.log("The 'NodeJS Pure' service of PID["+process.pid+"] is listening on port " + PORT);
 
 

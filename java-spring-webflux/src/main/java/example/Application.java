@@ -9,6 +9,8 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.*;
 import reactor.core.publisher.Mono;
 
+import java.lang.management.ManagementFactory;
+
 @SpringBootApplication
 @EnableWebFlux
 public class Application {
@@ -22,7 +24,7 @@ public class Application {
                 .properties("server.port=" + PORT)
                 .run(args);
 
-        System.out.println("The 'Java Spring Webflux' service is listening on port " + PORT);
+        System.out.println("The 'Java Spring Webflux' service of PID["+getPID()+"] is listening on port " + PORT);
     }
 
     @Bean
@@ -42,4 +44,16 @@ public class Application {
 
     }
 
+    private static String getPID(){
+        String pid = "";
+        try {
+            // This is a brittle way of getting the PID.
+            // If you are running on Java 9, use 'ProcessHandle.current().pid()' instead.
+            String pidName = ManagementFactory.getRuntimeMXBean().getName();
+            pid = pidName.split("@")[0];
+        }catch (Exception e){
+            // ¯\_(ツ)_/¯
+        }
+        return pid;
+    }
 }

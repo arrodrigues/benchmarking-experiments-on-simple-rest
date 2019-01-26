@@ -5,6 +5,8 @@ import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.Router;
 
+import java.lang.management.ManagementFactory;
+
 public class Application extends AbstractVerticle {
 
 
@@ -13,9 +15,8 @@ public class Application extends AbstractVerticle {
     public static void main(String[] args) {
         Vertx vertx = Vertx.vertx();
         vertx.deployVerticle(new Application());
-        System.out.println("The 'Java Vert.X' service is listening on port " + PORT);
+        System.out.println("The 'Java Vert.X' service of PID["+getPID()+"] is listening on port " + PORT );
     }
-
 
     @Override
     public void start(Future<Void> fut) {
@@ -44,5 +45,19 @@ public class Application extends AbstractVerticle {
                             }
                         }
                 );
+    }
+
+
+    private static String getPID(){
+        String pid = "";
+        try {
+            // This is a brittle way of getting the PID.
+            // If you are running on Java 9, use 'ProcessHandle.current().pid()' instead.
+            String pidName = ManagementFactory.getRuntimeMXBean().getName();
+            pid = pidName.split("@")[0];
+        }catch (Exception e){
+            // ¯\_(ツ)_/¯
+        }
+        return pid;
     }
 }
