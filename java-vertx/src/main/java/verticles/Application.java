@@ -27,7 +27,7 @@ public class Application extends AbstractVerticle {
             response
                     .putHeader("Content-type", "text/plain; charset=utf-8")
                     .putHeader("Connection", "keep-alive")
-                    .setChunked(true)
+                    .setChunked(false)
                     .end("The request for user '" + userName + "' was processed");
         });
 

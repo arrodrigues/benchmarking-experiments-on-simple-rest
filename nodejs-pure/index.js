@@ -8,15 +8,15 @@ const server = http.createServer(
         const queryParams = extractQueryParameters(req);
         const userName = queryParams.userName;
         const response = "The request for user '" + userName + "' was processed";
-        setDefaultHeadersOn(resp);
+        setDefaultHeadersOn(resp, response.length);
         resp.end(response);
     }
 );
 
 
-function setDefaultHeadersOn(resp) {
+function setDefaultHeadersOn(resp, contentLength) {
     resp.removeHeader('Date');
-    resp.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+    resp.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8', 'content-length': contentLength});
 }
 
 function extractQueryParameters(req) {

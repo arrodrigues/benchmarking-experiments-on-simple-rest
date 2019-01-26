@@ -41,4 +41,5 @@ public class Application {
                 .body(BodyInserters.fromObject("The request for user '" + userName + "' was processed"));
 
     }
+
 }
