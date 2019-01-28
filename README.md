@@ -1,10 +1,10 @@
 # Benchmarking Experiments On Simple Rest
 
-This project has the sole porpouse of backing a post I wrote on my blog.
-On each directory of the project  there is a simple application that exposes a HTTP GET method on localhost:3000 that expects a query string parameter userName. Eg:
+This project has the only porpouse of backing a post I wrote on my blog <http://antoniorodrigues.site/posts/2019/01/24/performance-comparision-for-rest.html>.
+On each directory of the project,  there is a simple application that exposes a HTTP GET method on localhost:3000, that expects a query string parameter userName. Eg:
 `GET http://localhost:3000/?userName=Antonio`
 
-And each one of the applications responds to this given request with the very same HTTP response.
+And each application, responds to this given request with the very same HTTP response.
 ```
 HTTP/1.1 200 OK
 transfer-encoding: chunked
@@ -14,7 +14,7 @@ Connection: keep-alive
 The request for user 'Antonio' was processed 
 ```
 
-To make sure that all the applications send back the same very same http response for the same request, I issued the following curl command `curl  http://localhost:3000/?userName=Antonio --trace-ascii -` and I verified that the response was always exactly this:
+To make sure that all the applications send back the same response, I issued the following curl line `curl  http://localhost:3000/?userName=Antonio --trace-ascii -` to each application, and I verified that the response was always exactly this:
 ```
 == Info:   Trying 127.0.0.1...
 == Info: TCP_NODELAY set
@@ -39,6 +39,6 @@ To make sure that all the applications send back the same very same http respons
 0000: The request for user 'Antonio' was processed
 == Info: Connection #0 to host localhost left intact
 ```
-There will be some minor differences like character cases or the ordering of the item headers. But nothing that could affect performance, as far as I know. The most important thing is that all the response of all applications have the exact same size in bytes.
+There may be some minor differences, like character cases or ordering of the item headers. But nothing that could affect performance, as far as I know. The most important, is that the response of all applications have the exact same size in bytes.
 
 
