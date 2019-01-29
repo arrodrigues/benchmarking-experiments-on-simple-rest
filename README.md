@@ -39,6 +39,6 @@ To make sure that all the applications send back the same response, I issued the
 0000: The request for user 'Antonio' was processed
 == Info: Connection #0 to host localhost left intact
 ```
-There may be some minor differences, like upper and lowercase ordering of item headers. But nothing that could affect performance. The most important is that the response of all applications has the exact same size in bytes.
+There may be some minor differences, like upper and lowercase or ordering of header items. But nothing that could affect performance. The most important is that the response of all applications has the exact same size in bytes.
 
 
