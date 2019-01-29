@@ -1,6 +1,6 @@
 # Benchmarking Experiments On Simple Rest
 
-This project has the only purpose of backing a post I wrote on my blog <http://antoniorodrigues.site/posts/2019/01/24/performance-comparision-for-rest.html>.
+This project has the sole purpose of backing a post I wrote on my blog <http://antoniorodrigues.site/posts/2019/01/24/performance-comparision-for-rest.html>.
 On each directory of the project,  there is a simple application that exposes a HTTP GET method on localhost:3000, that expects a query string parameter userName. Eg:
 `GET http://localhost:3000/?userName=Antonio`
 
